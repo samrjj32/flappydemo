@@ -1,0 +1,167 @@
+body {
+  display: flex;
+}
+
+.game-container {
+  width: 500px;
+  height: 730px;
+  position: absolute;
+  left: 80px;
+}
+
+.border-left {
+  width: 80px;
+  height: 790px;
+  position: absolute;
+  background-color: white;
+  z-index: +2;
+}
+
+.border-right {
+  width: 80px;
+  height: 790px;
+  position: absolute;
+  background-color: white;
+  z-index: +2;
+  left: 580px;
+}
+
+.border-top {
+  width: 660px;
+  height: 50px;
+  position: absolute;
+  background-color: white;
+  z-index: +2;
+  top: -50px;
+}
+
+.sky {
+  background-image: url("./assets//fb-game-background.png");
+  width: 500px;
+  height: 580px;
+  position: absolute;
+}
+
+.ground {
+  background-image: url("./assets/bottom-background.png");
+  width: 500px;
+  height: 150px;
+  position: absolute;
+  top: 580px;
+  z-index: +1;
+}
+
+.bird {
+  background-image: url("./assets/flappy-bird.png");
+  position: absolute;
+  width: 60px;
+  height: 45px;
+  left: 220px;
+  bottom: 100px;
+}
+
+.obstacle {
+  background-image: url("./assets/flappybird-pipe.png");
+  width: 60px;
+  height: 300px;
+  position: absolute;
+}
+
+.topObstacle {
+  background-image: url("./assets/flappybird-pipe.png");
+  transform: rotate(180deg);
+  width: 60px;
+  height: 300px;
+  position: absolute;
+}
+
+@keyframes slideright {
+  from {
+    background-position: 10000%;
+  }
+  to {
+    background-position: 0%;
+  }
+}
+
+@-webkit-keyframes slideright {
+  from {
+    background-position: 10000%;
+  }
+  to {
+    background-position: 0%;
+  }
+}
+
+.ground-container {
+  height: 150px;
+  width: 580px;
+  left: 80px;
+  position: absolute;
+}
+
+.ground-moving {
+  position: absolute;
+  top: 580px;
+  height: 150px;
+  background-image: url("./assets/bottom-background.png");
+  background-repeat: repeat-x;
+  animation: slideright 100s infinite linear;
+  -webkit-animation: slideright 100s infinite linear;
+  width: 100%;
+  z-index: +1;
+}
+
+.game-notover {
+    display: none;
+}
+
+.game-over {
+  z-index: 1000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.game-over p {
+  font-size: 2em;
+  text-align: center;
+  animation: example 1s infinite;
+}
+
+@keyframes example {
+  0% {
+    color: lime;
+    text-shadow: 0 0 20px green;
+  }
+  25% {
+    color: green;
+    text-shadow: 2px 2px 2px lime;
+    transform: translate(-2px, 1px);
+  }
+  40% {
+    color: lime;
+    text-shadow: none;
+    transform: translate(0, 0);
+  }
+  50% {
+    color: green;
+    text-shadow: 5px 5px 2px blue, -5px -5px 2px red;
+    transform: translate(0px, 5px);
+  }
+  70% {
+    color: lime;
+    text-shadow: none;
+    transform: translate(0, 0);
+  }
+  80% {
+    color: lime;
+    text-shadow: 0 0 20px green;
+    transform: translate(-2px, 1px);
+  }
+  100% {
+    color: lime;
+    text-shadow: none;
+  }
+}
